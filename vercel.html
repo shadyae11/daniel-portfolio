@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Dev Portfolio</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(110deg, #050000, #300000, #8b0000, #ff0000);
+        color: white;
+        font-family: Georgia, serif;
+      }
+
+      nav {
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+      }
+
+      .logo {
+        color: #f5b900;
+        font-size: 40px;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .nav-links a:hover {
+        color: #f5b900;
+      }
+
+      .talk-btn {
+        background: linear-gradient(90deg, #ff9d00, #ffd000);
+        color: white !important;
+        padding: 10px 18px;
+        border-radius: 25px;
+      }
+
+      .hero {
+        min-height: calc(100vh - 80px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 40px 78px;
+      }
+
+      .hero-text {
+        width: 45%;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+        margin-bottom: 12px;
+      }
+
+      .hero-text h1 span {
+        color: #f5b900;
+      }
+
+      .hero-text h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+      }
+
+      .hero-text p {
+        font-size: 21px;
+        line-height: 1.3;
+        max-width: 500px;
+        margin-bottom: 28px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 35px;
+      }
+
+      .contact {
+        background: linear-gradient(90deg, #ffb300, #ff1e00);
+        color: black;
+        text-decoration: none;
+        padding: 14px 20px;
+        border-radius: 30px;
+        font-size: 18px;
+      }
+
+      .cv {
+        border: 3px solid #f5b900;
+        color: white;
+        text-decoration: none;
+        padding: 11px 18px;
+        border-radius: 30px;
+        font-size: 18px;
+      }
+
+      .cv:hover {
+        background-color: #f5b900;
+        color: black;
+      }
+
+      .stats {
+        display: flex;
+        gap: 35px;
+      }
+
+      .stat h3 {
+        color: #f5b900;
+        font-size: 38px;
+      }
+
+      .stat p {
+        font-size: 22px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .hero-image {
+        width: 48%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 500px;
+        height: 640px;
+        object-fit: cover;
+
+        border-radius: 50%;
+
+        box-shadow: 0 0 35px rgba(255, 0, 0, 0.2);
+      }
+
+      .bottom-section div {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .bottom-section div span {
+        color: #f5b900;
+      }
+
+      .bottom-section p {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight: 700;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .service-overview{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 20px;
+      }
+      .service-overview div{
+        background-color: rgba(255, 255, 255, 0.242);
+        padding: 20px;
+        border-radius: 20px;
+      }
+
+      .service-overview div h3{
+        font-size: 25px;
+        letter-spacing: 1px;
+      }
+
+      .service-overview div p{
+        font-size: small;
+        letter-spacing: 1px;
+      }
+
+      .variables{
+        display: flex;
+        text-align: center;
+        margin-top: 20px;
+        gap: 10px;
+      }
+
+      .project{
+        background: linear-gradient(90deg, #ffb300, #ff1e00);
+        color: black;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border: none;
+        width: 145px;
+        height: 60px;
+        font-weight: bold;
+      }
+
+      .touch{
+        border: 3px solid #f5b900;
+        background-color: transparent;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        width: 145px;
+        height: 60px;  
+        color: white;
+        font-weight: bold;  
+      }
+
+      .about-section{
+          width: 100%;
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 70px;
+          padding: 80px 30px;
+          margin-bottom: 30px;
+        }
+
+        .left-side{
+          position: relative;
+          width: 750px;
+        }
+
+      .image-container{
+          width: 100%;
+          background: rgba(80, 60, 60, 0.65);
+          border-radius: 28px;
+          padding: 30px 45px 120px;
+      }
+
+      .image-grid{
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+      }
+
+      .image-card{
+        position: relative;
+        height: 190px;
+        border: 5px solid #e9aa00;
+        border-radius: 28px;
+        overflow: visible;
+        padding: 12px;
+        background: linear-gradient(
+        90deg,
+         #ff0000,
+        #e9aa00
+            );
+      }
+
+      .image-card img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 8px;
+      }
+
+     .label{
+      position: absolute;
+      top: -18px;
+      right: 15px;
+      background: #ef321d;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+     }
+
+     .experience{
+       position: absolute;
+       bottom: -65px;
+       left: 35%;
+       width: 235px;
+       padding: 28px;
+       background: linear-gradient(
+                100deg,
+                #ff1515,
+                #e6a900
+            );
+       border-radius: 28px;
+       font-size: 28px;
+       font-weight: bold;
+       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+     }
+
+     .right-side{
+      width: 700px;
+     }
+
+     .title{
+      font-size: 60px;
+      margin-bottom: 25px;
+      text-align: center;
+     }
+
+     .title span{
+      color: #e6a900;
+     }
+
+     .subtitle{
+      font-size: 32px;
+      margin-bottom: 25px;
+      text-align: center;
+     }
+
+     .description{
+      font-size: 21px;
+      line-height: 1.25;
+      margin-bottom: 30px;
+     }
+
+     .skills{
+      display: grid;
+      grid-template-columns: auto auto;
+      gap: 35px 50px;
+      margin-bottom: 35px;
+     }
+
+     .skill h3{
+      font-size: 20px;
+      margin-bottom: 5px;
+     }
+
+     .skill p{
+      font-size: 20px;
+      line-height: 1.15;
+     }
+
+     .all-buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+     }
+
+     .portfolio{
+        background: linear-gradient(90deg, #ffb300, #ff1e00);
+        color: black;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        border: none;
+        width: 145px;
+        height: 60px;
+        font-weight: bold;
+     }
+
+     .jbl{
+        border: 3px solid #f5b900;
+        background-color: transparent;
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        width: 145px;
+        height: 60px;  
+        color: white;
+        font-weight: bold;
+     }
+
+     .skills-overview{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 20px;
+     }
+
+     .skills-overview div{
+        background-color: rgba(255, 255, 255, 0.242);
+        padding: 20px;
+        border-radius: 20px;
+     }
+
+     .skills-overview div h3{
+        font-size: 25px;
+        letter-spacing: 1px;
+        align-items: center;
+     }
+
+     .skills-overview div p{
+        font-size: small;
+        letter-spacing: 1px;
+     }
+
+
+
+      @media (max-width: 1100px) {
+        .nav-links {
+          gap: 15px;
+        }
+
+        .nav-links a {
+          font-size: 16px;
+        }
+
+        .hero {
+          padding: 40px;
+        }
+
+        .hero-image img {
+          width: 420px;
+          height: 540px;
+        }
+      }
+
+      @media (max-width: 850px) {
+        nav {
+          flex-direction: column;
+          height: auto;
+          gap: 20px;
+          padding: 20px;
+        }
+
+        .nav-links {
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        .hero {
+          flex-direction: column;
+          text-align: center;
+          padding: 50px 20px;
+        }
+
+        .hero-text {
+          width: 100%;
+        }
+
+        .hero-text p {
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        .buttons {
+          justify-content: center;
+        }
+
+        .stats {
+          justify-content: center;
+        }
+
+        .hero-image {
+          width: 100%;
+          margin-top: 50px;
+        }
+
+        .hero-image img {
+          width: 350px;
+          height: 450px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .logo {
+          font-size: 30px;
+        }
+
+        .nav-links {
+          gap: 10px;
+        }
+
+        .nav-links a {
+          font-size: 14px;
+        }
+
+        .hero-text h1 {
+          font-size: 34px;
+        }
+
+        .hero-text h2 {
+          font-size: 19px;
+        }
+
+        .hero-text p {
+          font-size: 17px;
+        }
+
+        .stats {
+          gap: 20px;
+        }
+
+        .stat h3 {
+          font-size: 30px;
+        }
+
+        .stat p {
+          font-size: 16px;
+        }
+
+        .hero-image img {
+          width: 300px;
+          height: 390px;
+        }
+
+        
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="logo">Dev Portfolio</div>
+
+      <div class="nav-links">
+        <a href="#">Home</a>
+
+        <a href="#">Services</a>
+
+        <a href="#">About me</a>
+
+        <a href="#">Skills</a>
+
+        <a href="#">Projects</a>
+
+        <a href="#">Testimonial</a>
+
+        <a href="#" class="talk-btn"> Let's Talk </a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>I'm <span>DANIEL</span>&#128519</h1>
+
+        <h2>Full Stack Web Developer</h2>
+
+        <p>
+          I design and build premium, responsive websites that elevate your
+          brand and drive growth. We also maintain your websites.
+        </p>
+
+        <div class="buttons">
+          <a href="#" class="contact"> Contact Me → </a>
+
+          <a href="#" class="cv"> ↓ Download CV </a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <h3>50+</h3>
+
+            <p>Project</p>
+          </div>
+
+          <div class="stat">
+            <h3>3+</h3>
+
+            <p>Year</p>
+          </div>
+
+          <div class="stat">
+            <h3>40+</h3>
+
+            <p>Client</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image">
+        <img src="profile.jpg" alt="Profile Picture" />
+      </div>
+    </section>
+
+    <section class="bottom-section">
+      <div class="bottom-section div">
+        <h1>My <span>Services</span></h1>
+      </div>
+
+      <p>Turning ideas into reality</p>
+
+      <div class="service-overview">
+        <div>
+            <h3 class="first overview">Web Development</h3>
+            <p>
+                We buid modern,responsive and user friendly <br> websites tailored to your needs. <br> From simple business websites to powerful web applications, <br> We turn ideas into digital experience
+            </p>
+        </div>
+
+        <div>
+             <h3>Technical Writing</h3>
+            <p>    
+              We create clear, accurate, and easy-to-understand technical content for your audience. From user guides and documentation to tutorials and reports, we simplify complex information.
+            </p>
+        </div>
+
+        <div>
+             <h3>Mobile Development</h3>
+        <p>
+            We develop modern, responsive, and user-friendly mobile applications built for today’s digital world. We create powerful apps designed to deliver smooth and engaging experiences.
+        </p>
+        </div>
+        <div>
+             <h3>Email Marketing</h3>
+         <p>
+           We create engaging email campaigns that connect your brand with the right audience. From promotional emails to newsletters, we deliver clear and compelling messages that drive action.
+         </p>
+        </div>
+        <div>
+             <h3>UI/UX Design</h3>
+        <p>
+           We create clean, intuitive, and visually engaging interfaces designed around your users. From websites to mobile apps, we focus on smooth navigation and meaningful user experiences.
+        </p>
+        </div>
+
+         <div>
+             <h3>Web Design</h3>
+        <p>
+           We design modern, attractive, and responsive websites that make a strong first impression. Our designs combine creativity to deliver an enjoyable browsing experience.
+        </p>
+        </div>
+
+        </div>       
+      </div>
+
+     <div class="variables">
+      <button class="project">
+        View all project
+      </button>
+
+      <button class="touch">
+        Get in touch
+      </button>
+     </div>
+    </section>
+
+    <section class="about-section">
+      <div class="left-side">
+        <div class="image-container">
+          <div class="image-grid">
+            
+            <div class="image-card">
+              <img src="proffesional.jpg" alt="">
+              <div class="label">
+                Proffesional
+              </div>
+            </div>
+
+            <div class="image-card">
+              <img src="creative.jpg" alt="">
+              <div class="label">
+                Creative
+              </div>
+            </div>
+
+            <div class="image-card">
+              <img src="designer.jpg" alt="">
+              <div class="label">
+                Designer
+              </div>
+            </div>
+
+            <div class="image-card">
+              <img src="web developer.jpg" alt="">
+              <div class="label">
+                Developer
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="experience">
+          3+ Years <br>
+          Experience
+        </div>
+
+      </div>
+
+      <div class="right-side">
+        <h1 class="title">
+          About <span>Me</span>
+        </h1>
+
+        <h2 class="subtitle">
+          Full-Stack Developer and Cybersecurity Engineer
+        </h2>
+
+        <p class="description">
+          We creates, designs, and maintains websites and web applications using technologies such as HTML, CSS, JavaScript, and other programming tools.
+        </p>
+
+        <div class="skills">
+          <div class="skill">
+            <h3>
+              Frontend
+            </h3>
+            <p>
+              It uses html, css, JavaScript <br> for coding
+            </p>
+          </div>
+
+          <div class="skill">
+            <h3>
+              Backend
+            </h3>
+            <p>
+              It uses Django, Node.js, Express,<br>MungoDB, for coding
+            </p>
+          </div>
+
+          <div class="skill">
+            <h3>
+              Design
+            </h3>
+            <p>
+              UI/UX Design, figma, Responsive design,<br>Prototyping
+            </p>
+          </div>
+
+          <div class="skill">
+            <h3>
+              Tools
+            </h3>
+            <p>
+              Git, AWS, Docker, Vscode, Webpack
+            </p>
+          </div>
+        </div>
+
+        <div class="all-buttons">
+          <button class="portfolio">
+            View Portfolio
+          </button>
+
+          <button class="jbl">
+            Contact Me
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="last-section">
+      <div class="uhd">
+        <h3>
+          <span>Skills</span>& Experience
+        </h3>
+        <p>
+          My technical expertise and professional journey
+        </p>
+      </div>
+
+      <div class="skills-overview">
+        <div>
+          <h3>
+            HTML
+          </h3>
+
+          <p>
+            We build modern, responsive, and user-friendly websites tailored to your needs. From simple business websites to powerful web applications, we turn ideas into digital experiences.
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            CSS
+          </h3>
+
+          <p>
+            We create clear, accurate, and easy-to-understand technical content for your audience. From user guides and documentation to tutorials and reports, we simplify complex information.
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            Java Script
+          </h3>
+
+          <p>
+            We develop modern, responsive, and user-friendly mobile applications built for today’s digital world. We create powerful apps designed to deliver smooth and engaging experiences.
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            React
+          </h3>
+
+          <p>
+            We create engaging email campaigns that connect your brand with the right audience. From promotional emails to newsletters, we deliver clear and compelling messages that drive action.
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            Tailwind Css
+          </h3>
+
+          <p>
+            We create clean, intuitive, and visually engaging interfaces designed around your users. From websites to mobile apps, we focus on smooth navigation and meaningful user experiences.
+          </p>
+        </div>
+
+        <div>
+          <h3>
+            Git & Github
+          </h3>
+
+          <p>
+            We design modern, attractive, and responsive websites that make a strong first impression. Our designs combine creativity to deliver an enjoyable browsing experience.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <h3>
+          Experience
+        </h3>
+
+        <h4>
+          Professional Journey
+        </h4>
+
+        <div>
+          <h3>
+            Skills
+          </h3>
+
+          <h3>
+            Full Stack Web Deve
+          </h3>
+        </div>
+
+      </div>
+
+      
+
+
+    </section>
+  </body>
+</html>
